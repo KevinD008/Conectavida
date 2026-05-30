@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura la vista para dispositivos móviles -->
+    <title>Seguridad Infantil - REGISTRO</title> <!-- Título de la página -->
+    <style>
+        /* Definición de variables de color para un diseño consistente */
+        :root {
+            --primary-color: #3498db;
+            /* Color principal */
+            --secondary-color: #2ecc71;
+            /* Color secundario */
+            --background-color: #f4f6f7;
+            /* Color de fondo */
+            --text-color: #34495e;
+            /* Color del texto */
+            --input-background: #fff;
+            /* Color de fondo de los inputs */
+            --input-border: #bdc3c7;
+            /* Color de borde de los inputs */
+            --error-color: #e74c3c;
+            /* Color para mensajes de error */
+            --button-hover: #27ae60;
+            /* Color para hover del botón */
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            /* Color de sombra */
+        }
+
+        /* Estilos generales del cuerpo del documento */
+        body {
+            display: flex;
+            /* Utiliza flexbox para centrar contenido */
+            justify-content: center;
+            /* Centra horizontalmente */
+            align-items: center;
+            /* Centra verticalmente */
+            min-height: 100vh;
+            /* Altura mínima igual a la altura de la ventana */
+            margin: 0;
+            /* Elimina márgenes por defecto */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Tipografía */
+            background-color: var(--background-color);
+            /* Color de fondo usando la variable */
+            color: var(--text-color);
+            /* Color del texto usando la variable */
+        }
+
+        /* Estilos para el contenedor del formulario */
+        .form-container {
+            background-color: var(--input-background);
+            /* Color de fondo del contenedor */
+            padding: 40px;
+            /* Espaciado interno */
+            border-radius: 15px;
+            /* Bordes redondeados */
+            box-shadow: 0 10px 30px var(--shadow-color);
+            /* Sombra del contenedor */
+            max-width: 500px;
+            /* Ancho máximo del contenedor */
+            width: 100%;
+            /* Ancho completo */
+            opacity: 0;
+            /* Comienza oculto para animación */
+            transform: translateY(20px);
+            /* Movimiento para la animación de entrada */
+            animation: fadeInUp 0.6s forwards;
+            /* Aplicación de la animación de entrada */
+        }
+
+        /* Definición de la animación de entrada */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                /* Cambia a opacidad completa */
+                transform: translateY(0);
+                /* Restablece la posición vertical */
+            }
+        }
+
+        /* Estilos para el encabezado del formulario */
+        h1 {
+            text-align: center;
+            /* Centra el texto */
+            color: var(--primary-color);
+            /* Color del texto usando la variable */
+            margin-bottom: 1.5rem;
+            /* Espacio inferior */
+            font-size: 2.5em;
+            /* Tamaño de fuente */
+            text-shadow: 1px 1px 2px var(--shadow-color);
+            /* Sombra del texto */
+        }
+
+        /* Estilos para las etiquetas de los campos del formulario */
+        label {
+            display: block;
+            /* Hace que las etiquetas ocupen todo el ancho */
+            font-weight: bold;
+            /* Texto en negrita */
+            color: var(--primary-color);
+            /* Color usando la variable */
+            margin-top: 1rem;
+            /* Espacio superior */
+            margin-bottom: 0.5rem;
+            /* Espacio inferior */
+        }
+
+        /* Estilos para los campos de entrada y selectores */
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            /* Ancho completo */
+            padding: 12px;
+            /* Espaciado interno */
+            margin-bottom: 1rem;
+            /* Espacio inferior */
+            background-color: var(--input-background);
+            /* Color de fondo usando la variable */
+            border: 1px solid var(--input-border);
+            /* Borde usando la variable */
+            border-radius: 8px;
+            /* Bordes redondeados */
+            color: var(--text-color);
+            /* Color del texto usando la variable */
+            font-size: 1em;
+            /* Tamaño de fuente */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            /* Transiciones suaves para el borde y la sombra */
+            opacity: 0;
+            /* Comienza oculto para la animación */
+            transform: translateY(10px);
+            /* Movimiento para la animación de entrada */
+            animation: fadeIn 0.6s forwards;
+            /* Aplicación de la animación */
+        }
+
+        /* Definición de la animación de entrada para campos */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                /* Cambia a opacidad completa */
+                transform: translateY(0);
+                /* Restablece la posición vertical */
+            }
+        }
+
+        /* Estilos para el campo en foco */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            outline: none;
+            /* Elimina el contorno por defecto */
+            border-color: var(--primary-color);
+            /* Cambia el color del borde al color primario */
+            box-shadow: 0 0 5px var(--primary-color);
+            /* Añade sombra al campo */
+        }
+
+        /* Estilos para el botón de envío */
+        input[type="submit"] {
+            padding: 12px;
+            /* Espaciado interno */
+            background-color: var(--secondary-color);
+            /* Color de fondo usando la variable */
+            color: white;
+            /* Color del texto */
+            border: none;
+            /* Sin borde */
+            border-radius: 8px;
+            /* Bordes redondeados */
+            cursor: pointer;
+            /* Cambia el cursor al pasar por encima */
+            font-size: 1.1em;
+            /* Tamaño de fuente */
+            transition: background-color 0.3s, transform 0.1s ease-in-out;
+            /* Transiciones para el color de fondo y transformación */
+            margin-top: 10px;
+            /* Espacio superior */
+            width: 100%;
+            /* Ancho completo */
+        }
+
+        /* Estilos para el botón al pasar el cursor */
+        input[type="submit"]:hover {
+            background-color: var(--button-hover);
+            /* Cambia el color de fondo al pasar el cursor */
+            transform: translateY(-2px);
+            /* Mueve el botón hacia arriba */
+        }
+
+        /* Estilos para mensajes de error */
+        .error {
+            color: var(--error-color);
+            /* Color del texto de error usando la variable */
+            font-size: 0.9em;
+            /* Tamaño de fuente */
+            margin-top: -0.5rem;
+            /* Espacio superior negativo */
+            margin-bottom: 0.5rem;
+            /* Espacio inferior */
+        }
+
+        /* Estilos responsivos para pantallas pequeñas */
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px;
+                /* Espaciado interno reducido */
+            }
+
+            h1 {
+                font-size: 2em;
+                /* Tamaño de fuente del encabezado reducido */
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+
+ <link rel="stylesheet" href="include/css/style.css">
+ <div class="fondo">
+    <img
+        src="https://img.magnific.com/foto-gratis/discusion-medica_1098-18452.jpg"
+        alt="City Map"
+        class="imagen-fondo"
+    />
+</div>
+
+    <div class="form-container"> <!-- Contenedor principal del formulario -->
+        <h1>Registro - Seguridad Infantil</h1> <!-- Título del formulario -->
+        <form id="securityForm" action="numero1.php" method="POST"> <!-- Formulario que envía datos a numero1.php -->
+            <label for="nombre">Nombre</label> <!-- Etiqueta para el campo de nombre -->
+            <input type="text" id="nombre" name="nombre" required aria-required="true">
+            <!-- Campo de entrada para nombre -->
+
+            <label for="apellido">Apellido</label> <!-- Etiqueta para el campo de apellido -->
+            <input type="text" id="apellido" name="apellido" required aria-required="true">
+            <!-- Campo de entrada para apellido -->
+
+            <label for="document_type">Tipo de Documento</label> <!-- Etiqueta para el campo de tipo de documento -->
+            <select name="document_type" id="document_type" required aria-required="true">
+                <!-- Selector para tipo de documento -->
+                <option value="">Seleccione una opción</option> <!-- Opción por defecto -->
+                <option value="cc">Cédula de ciudadanía</option> <!-- Opción para cédula de ciudadanía -->
+                <option value="ti">Tarjeta de identidad</option> <!-- Opción para tarjeta de identidad -->
+                <option value="tm">Tarjeta de migración</option> <!-- Opción para tarjeta de migración -->
+                <option value="ce">Cédula de extranjería</option> <!-- Opción para cédula de extranjería -->
+            </select>
+
+            <label for="document_number">Número de Documento</label>
+            <!-- Etiqueta para el campo de número de documento -->
+            <input type="text" id="document_number" name="document_number" placeholder="Ingrese su número de documento"
+                required aria-required="true"> <!-- Campo de entrada para número de documento -->
+
+            <label for="email">Correo electrónico</label> <!-- Etiqueta para el campo de correo electrónico -->
+            <input type="email" id="email" name="email" required aria-required="true">
+            <!-- Campo de entrada para correo electrónico -->
+
+            <label for="direccion">Dirección</label> <!-- Etiqueta para el campo de dirección -->
+            <input type="text" id="direccion" name="direccion" required aria-required="true">
+            <!-- Campo de entrada para dirección -->
+
+            <label for="genero">Género</label> <!-- Etiqueta para el campo de género -->
+            <select id="genero" name="genero" required aria-required="true"> <!-- Selector para género -->
+                <option value="">Seleccione una opción</option> <!-- Opción por defecto -->
+                <option value="masculino">Masculino</option> <!-- Opción para masculino -->
+                <option value="femenino">Femenino</option> <!-- Opción para femenino -->
+                <option value="otro">Otro</option> <!-- Opción para otro género -->
+                <option value="prefiero_no_decir">Prefiero no decir</option> <!-- Opción para preferir no decir -->
+            </select>
+
+            <input type="submit" value="Enviar"> <!-- Botón de envío del formulario -->
+        </form>
+    </div>
+    <script>
+        // Agrega un evento de escucha al formulario al ser enviado
+        document.getElementById('securityForm').addEventListener('submit', function (event) {
+            let isValid = true; // Variable para verificar la validez del formulario
+            const fields = ['nombre', 'apellido', 'document_type', 'document_number', 'email', 'direccion', 'genero']; // Campos que se van a validar
+
+            fields.forEach(field => {
+                const element = document.getElementById(field); // Obtiene el elemento del campo
+                const errorElement = document.getElementById(field + 'Error'); // Obtiene el elemento de error correspondiente
+
+                if (errorElement) {
+                    errorElement.remove(); // Elimina el mensaje de error si existe
+                }
+
+                // Verifica si el campo está vacío
+                if (!element.value) {
+                    isValid = false; // Marca el formulario como inválido
+                    const error = document.createElement('div'); // Crea un nuevo elemento para el error
+                    error.id = field + 'Error'; // Asigna un ID al mensaje de error
+                    error.className = 'error'; // Añade la clase de error
+                    error.textContent = 'Este campo es requerido'; // Mensaje de error
+                    element.parentNode.insertBefore(error, element.nextSibling); // Inserta el mensaje de error después del campo
+                    element.setAttribute('aria-invalid', 'true'); // Establece atributo ARIA para accesibilidad
+                    element.setAttribute('aria-describedby', field + 'Error'); // Relaciona el error con el campo
+                } else {
+                    // Si el campo está lleno, remueve los atributos de error
+                    element.removeAttribute('aria-invalid');
+                    element.removeAttribute('aria-describedby');
+                }
+            });
+
+            // Previene el envío del formulario si hay errores
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

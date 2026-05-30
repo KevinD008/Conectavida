@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Centro de Privacidad - ConectaVida</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#754aa1",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d4daea",
+                        "on-primary-fixed": "#001356",
+                        "on-tertiary-fixed-variant": "#663e00",
+                        "on-surface": "#161c27",
+                        "on-primary-container": "#fffbff",
+                        "tertiary": "#835100",
+                        "primary-fixed": "#dde1ff",
+                        "outline-variant": "#c5c5d5",
+                        "tertiary-fixed-dim": "#ffb964",
+                        "surface-variant": "#dde2f3",
+                        "surface-container": "#e8eeff",
+                        "secondary-fixed": "#f0dbff",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9ff",
+                        "secondary-fixed-dim": "#dcb8ff",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#546cd7",
+                        "surface-container-low": "#f1f3ff",
+                        "on-primary-fixed-variant": "#1f3ba6",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary-fixed": "#ffddb9",
+                        "on-secondary-fixed": "#2c0051",
+                        "secondary-container": "#ce9ffd",
+                        "on-background": "#161c27",
+                        "on-secondary-fixed-variant": "#5c3187",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#a56600",
+                        "inverse-primary": "#b9c3ff",
+                        "outline": "#757684",
+                        "surface-container-high": "#e3e8f9",
+                        "on-tertiary-fixed": "#2b1700",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f9f9ff",
+                        "on-secondary-container": "#5a3086",
+                        "primary": "#3953bd",
+                        "surface-container-highest": "#dde2f3",
+                        "inverse-surface": "#2a303d",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#3c55bf",
+                        "surface": "#f9f9ff",
+                        "inverse-on-surface": "#ecf0ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#b9c3ff",
+                        "on-surface-variant": "#444653",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl-mobile": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brand-gradient {
+            background: linear-gradient(135deg, #3953bd 0%, #754aa1 100%);
+        }
+        .soft-sentinel-shadow {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar Shared Component -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest dark:bg-surface-dim shadow-sm">
+<nav class="flex justify-between items-center px-gutter py-md max-w-container-max mx-auto">
+<div class="flex items-center gap-xl">
+<a href="prueba2.html" class="text-2xl font-bold text-primary tracking-tight">ConectaVida</a>
+<div class="hidden md:flex items-center gap-lg">
+<a href="prueba2.html#Emergencias" class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Emergencias</a>
+<!-- Active State: Recursos is closest to Privacy Docs -->
+<a href="prueba2.html#recurso" class="font-label-md text-label-md text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1" href="#">Recursos</a>
+<a href="prueba2.html#mapa" class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Mapa</a>
+
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="scale-95 active:scale-90 transition-transform px-lg py-sm rounded-full border border-primary text-primary font-label-md">Perfil</button>
+<button class="scale-95 active:scale-90 transition-transform px-lg py-sm rounded-full bg-primary text-on-primary font-label-md shadow-sm">Pedir Ayuda</button>
+</div>
+</nav>
+</header>
+<main class="flex-grow pt-[72px]">
+<!-- Page Header Hero -->
+<section class="brand-gradient py-xl relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter relative z-10 text-center md:text-left">
+<h1 class="font-headline-xl text-headline-xl text-on-primary mb-sm">Centro de Privacidad y Seguridad</h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 max-w-2xl">
+                    Tu confianza es nuestro activo más valioso. Descubre cómo protegemos tus datos y garantizamos tu seguridad digital en cada interacción.
+                </p>
+</div>
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-white/20 blur-3xl"></div>
+<div class="absolute -left-24 -bottom-24 w-96 h-96 rounded-full bg-white/20 blur-3xl"></div>
+</div>
+</section>
+<!-- Main Content Canvas -->
+<div class="max-w-container-max mx-auto px-gutter py-xl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<!-- Data Collection Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl soft-sentinel-shadow flex flex-col gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">database</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Recolección de Datos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                        Recopilamos únicamente la información esencial para prestar servicios de emergencia y conectividad comunitaria. Esto incluye datos de ubicación en tiempo real solo cuando se solicita ayuda.
+                    </p>
+</div>
+<!-- Usage Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl soft-sentinel-shadow flex flex-col gap-md">
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Uso de la Información</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                        Tus datos se utilizan exclusivamente para optimizar la respuesta logística y la coordinación de voluntarios. No vendemos ni compartimos tu información con terceros con fines publicitarios.
+                    </p>
+</div>
+<!-- Protection Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl soft-sentinel-shadow flex flex-col gap-md">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">security</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Protección de Datos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                        Implementamos cifrado de grado militar (AES-256) para todos los datos almacenados y en tránsito. Contamos con protocolos de seguridad activos 24/7 para prevenir accesos no autorizados.
+                    </p>
+</div>
+<!-- User Rights Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl soft-sentinel-shadow flex flex-col gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Derechos del Usuario</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                        Tienes derecho a acceder, rectificar, cancelar u oponerte al tratamiento de tus datos personales en cualquier momento a través de tu panel de configuración.
+                    </p>
+</div>
+<!-- Cookies Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl soft-sentinel-shadow flex flex-col gap-md">
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">cookie</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Política de Cookies</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                        Utilizamos cookies técnicas estrictamente necesarias para el funcionamiento de la plataforma y cookies analíticas anónimas para mejorar nuestra interfaz.
+                    </p>
+</div>
+<!-- Audits Card -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl soft-sentinel-shadow flex flex-col gap-md">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Auditorías Externas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                        Sometemos nuestra infraestructura a revisiones de seguridad independientes anualmente para certificar el cumplimiento de los estándares internacionales de privacidad.
+                    </p>
+</div>
+</div>
+<!-- Action Section -->
+<div class="bg-surface-container-low rounded-xl p-xl border border-outline-variant flex flex-col md:flex-row items-center justify-between gap-lg">
+<div class="flex items-center gap-lg">
+<div class="hidden sm:block">
+<img alt="Documento de privacidad profesional" class="w-24 h-24 object-cover rounded-lg" data-alt="A high-quality close-up photograph of a professional legal document folder resting on a minimalist white desk. The lighting is soft and corporate, creating a clean light-mode aesthetic with subtle shadows. The focus is sharp on the texture of the paper and a sophisticated silver pen nearby. The atmosphere conveys security, professionalism, and legal integrity through a cool palette of blues and grays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIa5qtInG3e0_TSrE17urTpjHUYqFb-T2fk6YQ-OUHNPHIDzwj2BziRsdA7wo1-hOQIN8Hwq7SPEBaV8TX5Sf0W0c-LJ4XD06gyQa6vhXyLxUTNH0iMBqhXuHBfEkyqZMSJLcix33zSoHtmpXqBL1jPNDjRef4lgC4OHM_1Vj_EpHWFxJbXI-TwrdGh06SdGo3O7pCdY1cbtO0L46jHjulyORXjz4M19VV5DslG7bJ6JA_OkZPzG5nbosveueCzm-Q0yJrYdNR2zKI"/>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">¿Necesitas más detalles?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Puedes descargar nuestra documentación completa o hablar con nuestro equipo legal.</p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-md w-full md:w-auto">
+<button class="flex items-center justify-center gap-xs px-lg py-sm rounded-lg border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined">download</span>
+                        Descargar Política Completa (PDF)
+                    </button>
+<button class="flex items-center justify-center gap-xs px-lg py-sm rounded-lg brand-gradient text-on-primary font-label-md hover:brightness-110 transition-all soft-sentinel-shadow">
+<span class="material-symbols-outlined">contact_support</span>
+                        Contactar al Oficial de Privacidad
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shared Component -->
+<footer class="w-full bg-gradient-to-r from-primary to-secondary">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter py-xl w-full max-w-container-max mx-auto">
+<div class="mb-lg md:mb-0">
+<span class="font-headline-md text-headline-md text-on-primary">ConectaVida</span>
+</div>
+<div class="flex gap-lg font-body-md text-body-md mb-lg md:mb-0">
+<a class="text-on-primary/80 transition-opacity hover:opacity-90" href="#">Contacto</a>
+</div>
+<div class="text-on-primary/80 font-body-md text-body-md">
+                © 2026 ConectaVida. Todos los derechos reservados.
+            </div>
+</div>
+</footer>
+</body></html>

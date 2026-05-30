@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+     <title>Ayuda - ConectaVida</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#754aa1",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d4daea",
+                    "on-primary-fixed": "#001356",
+                    "on-tertiary-fixed-variant": "#663e00",
+                    "on-surface": "#161c27",
+                    "on-primary-container": "#fffbff",
+                    "tertiary": "#835100",
+                    "primary-fixed": "#dde1ff",
+                    "outline-variant": "#c5c5d5",
+                    "tertiary-fixed-dim": "#ffb964",
+                    "surface-variant": "#dde2f3",
+                    "surface-container": "#e8eeff",
+                    "secondary-fixed": "#f0dbff",
+                    "on-primary": "#ffffff",
+                    "background": "#f9f9ff",
+                    "secondary-fixed-dim": "#dcb8ff",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#546cd7",
+                    "surface-container-low": "#f1f3ff",
+                    "on-primary-fixed-variant": "#1f3ba6",
+                    "on-tertiary-container": "#fffbff",
+                    "tertiary-fixed": "#ffddb9",
+                    "on-secondary-fixed": "#2c0051",
+                    "secondary-container": "#ce9ffd",
+                    "on-background": "#161c27",
+                    "on-secondary-fixed-variant": "#5c3187",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#a56600",
+                    "inverse-primary": "#b9c3ff",
+                    "outline": "#757684",
+                    "surface-container-high": "#e3e8f9",
+                    "on-tertiary-fixed": "#2b1700",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f9f9ff",
+                    "on-secondary-container": "#5a3086",
+                    "primary": "#3953bd",
+                    "surface-container-highest": "#dde2f3",
+                    "inverse-surface": "#2a303d",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#3c55bf",
+                    "surface": "#f9f9ff",
+                    "inverse-on-surface": "#ecf0ff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#b9c3ff",
+                    "on-surface-variant": "#444653",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-xl-mobile": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .brand-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .sos-ripple {
+            position: relative;
+        }
+        .sos-ripple::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #ba1a1a;
+            opacity: 0.6;
+            z-index: -1;
+        }
+        .sos-ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 130%;
+            height: 130%;
+            border-radius: 50%;
+            border: 1px solid #ba1a1a;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        .sos-btn{
+    position: relative;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border: none;
+    background: rgb(219, 13, 13);
+    color: white;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* círculo de progreso */
+.progress{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 8px solid rgba(255,255,255,0.3);
+    border-top: 8px solid white;
+    transform: rotate(0deg);
+    opacity: 0;
+}
+
+.progress.animar{
+    opacity: 1;
+    animation: cargar 3s linear forwards;
+}
+
+@keyframes cargar{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-container-lowest dark:bg-surface-dim shadow-sm">
+<div class="flex justify-between items-center px-gutter py-md max-w-container-max mx-auto">
+<div class="flex items-center gap-xl">
+<a href="prueba2.html" class="text-2xl font-bold text-primary tracking-tight">ConectaVida</a><div class="hidden md:flex gap-lg items-center">
+<a href="prueba2.html#Emergencias" class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-200" href="#">Emergencias</a>
+<a href="prueba2.html#recurso" class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-200" href="#">Recursos</a>
+<a href="prueba2.html#mapa" class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-200" href="#">Mapa</a>
+<a href="index.html" class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors duration-200" href="#">Voluntarios</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+
+<div class="flex items-center gap-xs cursor-pointer hover:bg-surface-container transition-colors p-xs rounded-lg">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="Avatar de usuario" class="w-full h-full object-cover" data-alt="A professional studio portrait of a friendly Hispanic woman in her late 30s, smiling warmly at the camera. She is wearing a soft blue corporate blazer over a white shirt. The background is a clean, softly blurred modern office interior with natural daylight pouring in from large windows, creating a bright and trustworthy atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuDxq1Lm51E6EznvZMPiO1pZrP_fLuzBsLEss58ZJcGArLFDROTKB8C5c-2WRs9p-rh993m89lcN0HiGXa8QjFEsIeaCJIb-OYRgaxQDF_ZDtuGdxFayyIHFe3x8OX0NYbl8hlrILrjZ1M8U1aManjf_1Hj6Hl5K0Jx336Mjp_rz04LqQgOXv8TjpKEdWKHE31QP9gxVZBFlR2c0pfdSxy4o_EBXRqJkGNswSFopGRbzoeMFOh6_GwzTdQFOgcAu_dz_ieiDX8Rxnp"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Perfil</span>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-xl">
+<!-- Hero Section: SOS Central -->
+<section class="max-w-container-max mx-auto px-gutter mb-xl">
+<div class="brand-gradient rounded-xl py-xl px-lg text-center flex flex-col items-center justify-center shadow-sm">
+<h1 class="text-on-primary font-headline-xl text-headline-xl mb-md">¿Necesitas asistencia inmediata?</h1>
+<p class="text-on-primary/90 font-body-lg text-body-lg max-w-2xl mb-xl">Pulsa el botón central para alertar a los servicios de emergencia y a la red de voluntarios más cercana a tu ubicación.</p>
+<div class="sos-ripple mb-md">
+
+
+
+<button id="sosBtn" class="sos-btn">
+    <div class="progress"></div>
+
+    <span class="material-symbols-outlined icon">
+        emergency
+    </span>
+
+    <span>S.O.S</span>
+</button>
+
+<script>
+const boton = document.getElementById("sosBtn");
+const progress = document.querySelector(".progress");
+let timer;
+
+function iniciar(){
+    progress.classList.add("animar");
+
+    timer = setTimeout(() => {
+        window.location.href = "ayuda/apoyo.html";
+    }, 3000);
+}
+
+function cancelar(){
+    clearTimeout(timer);
+    progress.classList.remove("animar");
+
+    // reiniciar animación
+    void progress.offsetWidth;
+}
+
+boton.addEventListener("mousedown", iniciar);
+boton.addEventListener("mouseup", cancelar);
+boton.addEventListener("mouseleave", cancelar);
+
+boton.addEventListener("touchstart", iniciar);
+boton.addEventListener("touchend", cancelar);
+</script>
+
+
+</div>
+<p class="text-on-primary/80 font-label-sm text-label-sm mt-lg">Mantén pulsado durante 3 segundos para confirmar</p>
+</div>
+</section>
+<!-- Emergency Panel: Map & Categories -->
+<section class="max-w-container-max mx-auto px-gutter grid grid-cols-12 gap-lg mb-xl">
+<!-- Left: Interactive Map -->
+<div class="col-span-12 lg:col-span-7 h-[500px] bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden relative group shadow-sm">
+<div class="absolute top-md left-md z-10 flex flex-col gap-xs">
+<div class="bg-surface-container-lowest/90 backdrop-blur px-md py-sm rounded-lg border border-outline-variant shadow-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Ubicación Actual</p>
+<p class="font-headline-md text-label-md text-on-surface">Calle de la Solidaridad, 42</p>
+</div>
+</div>
+<div class="absolute bottom-md right-md z-10">
+<button class="bg-primary text-on-primary p-md rounded-full shadow-lg flex items-center gap-sm">
+<span class="material-symbols-outlined">my_location</span>
+<span class="font-label-md text-label-md pr-xs">Centrar Mapa</span>
+</button>
+</div>
+<!-- Map Placeholder -->
+<div class="w-full h-full bg-surface-dim flex items-center justify-center relative">
+<img alt="Mapa de ayuda" class="w-full h-full object-cover" data-alt="A highly detailed topographical city map of Madrid, Spain, displayed on a high-tech digital interface. The map features prominent glowing red icons for emergency centers and blue pulses representing nearby active volunteers. Street names are crisp and legible in a modern sans-serif font. The visual style is sleek and technical, using a palette of soft grays and vibrant alert colors under soft, professional lighting." data-location="Madrid, Spain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsqehj0SzQxyzaVnOyORuxEahp2P2D9R3mXG52T6alkGJOn-zK6BT0loWkwoOZ-aoRgzv6jhEqOBeZH_cn3dxXHw-hFCZ9z3KnJPHuLcKeieptaPXhwcivfyGi_GzXSxGkIHBIr8LBpzMi8Gld1oX3DheXXeG1oRcyV4k4FfZZ_nSEagaXI_DyF3GraMV30qPOm5Mb3BgKKplELqIGhW6OWT9XkGcfj1kQh8HmhAa0JASX98kKEpYiJmWBccWW8BdKFfiEyQ5aEtrk"/>
+<div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+</div>
+</div>
+<!-- Right: Emergency Categories -->
+<div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-md">
+<!-- Medical -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm hover:border-primary transition-all group flex flex-col justify-between">
+<div class="bg-error-container text-on-error-container w-12 h-12 rounded-lg flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">medical_services</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Médica</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">Accidentes, desmayos o crisis de salud críticas.</p>
+</div>
+<button onclick="window.location.href='https://scj.gov.co/programas/linea-de-emergencias-de-bogota-123'" 
+class="mt-md text-primary font-label-md flex items-center gap-xs">Llamar Ambulancia <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+<!-- Security -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm hover:border-primary transition-all group flex flex-col justify-between">
+<div class="bg-primary-container text-on-primary-container w-12 h-12 rounded-lg flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">local_police</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Seguridad</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">Robos, altercados o situaciones de peligro social.</p>
+</div>
+<button onclick="window.location.href='https://www.policia.gov.co'" 
+class="mt-md text-primary font-label-md flex items-center gap-xs">Contactar Policía <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+<!-- Fire -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm hover:border-primary transition-all group flex flex-col justify-between">
+<div class="bg-tertiary-container text-on-tertiary-container w-12 h-12 rounded-lg flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">fire_truck</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Incendio</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">Fuegos, fugas de gas o riesgos estructurales.</p>
+</div>
+<button onclick="window.location.href='https://www.bomberosbogota.gov.co'"  
+class="mt-md text-primary font-label-md flex items-center gap-xs">Llamar Bomberos <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+<!-- Community Support -->
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm hover:border-primary transition-all group flex flex-col justify-between">
+<div class="bg-secondary-container text-on-secondary-container w-12 h-12 rounded-lg flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">groups</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Apoyo</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">Asistencia menor, orientación o ayuda vecinal.</p>
+</div>
+<button onclick="window.location.href='https://www.sdmujer.gov.co/nuestros-servicios/servicios-para-las-mujeres/orientacion-psicosocial'"   
+class="mt-md text-primary font-label-md flex items-center gap-xs">Red Voluntaria <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+</div>
+</section>
+<!-- Information Section: Protocol -->
+<section class="max-w-container-max mx-auto px-gutter">
+<div class="bg-surface-container p-xl rounded-xl border-l-4 border-primary">
+<div class="flex items-start gap-lg">
+<div class="bg-primary/10 text-primary p-md rounded-full">
+<span class="material-symbols-outlined text-[32px]">info</span>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md">Protocolo de Activación</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+<div class="flex gap-md">
+<span class="font-headline-xl text-primary/20 leading-none">01</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-xs">Detección y Alerta</h4>
+<p class="font-body-md text-label-sm text-on-surface-variant">Al pulsar SOS, enviamos tu ubicación GPS exacta a la central de emergencias local.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<span class="font-headline-xl text-primary/20 leading-none">02</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-xs">Verificación</h4>
+<p class="font-body-md text-label-sm text-on-surface-variant">Un operador intentará contactarte vía voz o chat para confirmar el tipo de asistencia requerida.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<span class="font-headline-xl text-primary/20 leading-none">03</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-xs">Despliegue</h4>
+<p class="font-body-md text-label-sm text-on-surface-variant">Se movilizan las unidades profesionales y se notifica a los contactos de confianza seleccionados.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-gradient-to-r from-primary to-secondary text-on-primary">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter py-xl w-full max-w-container-max mx-auto">
+<div class="mb-lg md:mb-0">
+<span class="font-headline-md text-headline-md text-on-primary">ConectaVida</span>
+<p class="font-body-md text-body-md mt-xs opacity-80">Protegiendo nuestra comunidad, juntos.</p>
+</div>
+<div class="flex flex-col items-center md:items-end gap-md">
+<div class="flex gap-xl mb-md">
+<a class="text-on-primary/80 hover:text-on-primary transition-opacity font-body-md text-body-md" href="#">Legal</a>
+<a class="text-on-primary/80 hover:text-on-primary transition-opacity font-body-md text-body-md" href="#">Contacto</a>
+<a class="text-on-primary font-bold underline font-body-md text-body-md" href="#">Documentación</a>
+</div>
+<p class="font-body-md text-body-md opacity-70 text-sm">© 2026 ConectaVida. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+</body></html>

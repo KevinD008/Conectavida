@@ -1,0 +1,44 @@
+.red {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+     z-index: 9999;
+}
+.chat-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-text{
+    background: #2563eb;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 10px;
+
+    opacity: 0;
+    transform: translateX(20px);
+
+    transition: all 0.3s ease;
+}
+
+/* ANIMACIÓN */
+.chat-container:hover .chat-text{
+
+    opacity: 1;
+    transform: translateX(0);
+
+}
+
+
+.imagen-fondo{     
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0.5;
+    z-index: -1;
+  
+}

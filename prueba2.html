@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectaVida - Tu comunidad, tu fortaleza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3953bd',
+                        secondary: '#754aa1',
+                        surface: '#f9f9ff',
+                        'surface-container': '#e8eeff',
+                        'surface-container-low': '#f1f3ff',
+                        'surface-container-lowest': '#ffffff',
+                        'on-surface': '#161c27',
+                        'on-surface-variant': '#444653',
+                        'outline-variant': '#c5c5d5',
+                    },
+                    borderRadius: {
+                        'xl': '1.5rem',
+                        'lg': '1rem',
+                        'md': '0.75rem',
+                    },
+                    maxWidth: {
+                        'container-max': '1280px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .brand-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%);
+        }
+        .protocol-overlay {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 0;
+        }
+        .protocol-overlay.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.2s ease;
+            opacity: 0;
+        }
+        .mobile-menu.active {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-sans overflow-x-hidden min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-surface border-b border-outline-variant shadow-sm sticky top-0 z-50">
+        <div class="max-w-container-max mx-auto px-4 md:px-8 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <a href="prueba2.html" class="text-2xl font-bold text-primary tracking-tight">ConectaVida</a>
+                <nav class="hidden md:flex gap-6">
+                    <a href="#Emergencias" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Emergencias</a>
+                    <a href="#recurso" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Recursos</a>
+                    <a href="#mapa" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Mapa</a>
+                    <a href="index.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Registro</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="window.location.href='ayuda.html'" 
+                class="hidden sm:block brand-gradient text-white px-6 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md">
+                    Pedir Ayuda
+                </button>
+                <div class="flex gap-2 items-center">
+                    <button class="p-2 rounded-full hover:bg-surface-container-low text-on-surface-variant">
+                        <i data-lucide="bell" class="w-5 h-5"></i>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-surface-container-low text-on-surface-variant">
+                        <i data-lucide="user-circle" class="w-6 h-6"></i>
+                    </button>
+                    <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-full hover:bg-surface-container-low text-on-surface-variant">
+                        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                        <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-surface border-b border-outline-variant">
+            <div class="px-4 py-6 flex flex-col gap-4">
+                <a href="#" class="text-lg font-medium text-on-surface-variant py-2 border-b border-outline-variant/30">Emergencias</a>
+                <a href="#" class="text-lg font-medium text-on-surface-variant py-2 border-b border-outline-variant/30">Recursos</a>
+                <a href="#" class="text-lg font-medium text-on-surface-variant py-2 border-b border-outline-variant/30">Mapa</a>
+                <a href="#" class="text-lg font-medium text-on-surface-variant py-2 border-b border-outline-variant/30">Voluntarios</a>
+                <a href="#" class="text-lg font-medium text-on-surface-variant py-2 border-b border-outline-variant/30">Noticias</a>
+                <button class="w-full brand-gradient text-white py-3 rounded-lg font-semibold mt-4">
+                    Pedir Ayuda
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[500px] md:h-[600px] flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img 
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+                    class="w-full h-full object-cover" 
+                    alt="Professional responders" 
+                />
+                <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+            <div class="relative z-10 w-full max-w-container-max mx-auto px-4 md:px-8">
+                <div class="max-w-2xl transform transition-all duration-1000 translate-y-0 opacity-100">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight tracking-tight">
+                        Tu comunidad, <br class="hidden md:block"> tu fortaleza
+                    </h1>
+                    <p class="text-lg md:text-xl text-white/95 mb-8 max-w-lg leading-relaxed font-normal">
+                        Sistema de respuesta comunitaria de precisión diseñado para garantizar la seguridad y salud de cada ciudadano a través de una red integrada de profesionales.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-white text-primary px-8 py-3 rounded-xl font-bold shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all text-lg">
+                            Ver Servicios
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-3 rounded-xl font-bold hover:bg-white/10 active:scale-95 transition-all text-lg backdrop-blur-sm">
+                            Sedes Bogotá
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Numbers -->
+        <section class="py-16 bg-surface-container-low" id="Emergencias">
+            <div class="max-w-container-max mx-auto px-4 md:px-8">
+                <div class="flex items-center justify-between mb-8 gap-4 flex-wrap">
+                    <h2 class="text-2xl md:text-3xl font-bold text-primary">Números de Emergencia</h2>
+                    <span class="text-sm font-semibold text-white bg-secondary px-4 py-1.5 rounded-full inline-flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                        Atención 24/7
+                    </span>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                    <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md hover:-translate-y-2 transition-all">
+                        <span class="text-4xl font-bold text-secondary mb-2">123</span>
+                        <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">Línea Única</span>
+                    </div>
+                    <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md hover:-translate-y-2 transition-all">
+                        <span class="text-4xl font-bold text-primary mb-2">119</span>
+                        <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">Bomberos</span>
+                    </div>
+                    <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md hover:-translate-y-2 transition-all">
+                        <span class="text-4xl font-bold text-primary mb-2">132</span>
+                        <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">Cruz Roja</span>
+                    </div>
+                    <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md hover:-translate-y-2 transition-all">
+                        <span class="text-4xl font-bold text-primary mb-2">144</span>
+                        <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">Defensa Civil</span>
+                    </div>
+                    <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md hover:-translate-y-2 transition-all">
+                        <span class="text-4xl font-bold text-primary mb-2">195</span>
+                        <span class="text-sm font-medium text-on-surface-variant uppercase tracking-wider">Atención Ciudadana</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Services Grid -->
+        <section class="py-24" id="recurso">
+            <div class="max-w-container-max mx-auto px-4 md:px-8">
+                <div class="mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-3">Servicios de Apoyo</h2>
+                    <p class="text-lg text-on-surface-variant max-w-3xl">
+                        Red de respuesta integral coordinada para su tranquilidad. Interactúe con "Ver protocolo" para conocer los pasos a seguir.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="services-grid">
+                    <!-- Service cards will be populated or stay static -->
+                    <!-- Card: Policía Nacional -->
+                    <div class="group relative overflow-hidden bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-all duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mb-6 text-primary">
+                            <i data-lucide="shield" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3">Policía Nacional</h3>
+                        <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Vigilancia comunitaria y atención inmediata ante situaciones de inseguridad ciudadana.</p>
+                        <button onclick="toggleProtocol(this)" class="text-sm font-semibold text-primary flex items-center gap-2 hover:underline focus:outline-none">
+                            Ver protocolo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <div class="protocol-overlay absolute inset-0 brand-gradient p-6 flex flex-col justify-center z-10">
+                            <button onclick="toggleProtocol(this)" class="absolute top-4 right-4 text-white hover:bg-white/20 p-1 rounded-full transition-colors">
+                                <i data-lucide="x" class="w-5 h-5"></i>
+                            </button>
+                            <h4 class="text-xl font-semibold text-white mb-4 border-b border-white/20 pb-2">Protocolo</h4>
+                            <ul class="space-y-3">
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Reportar situaciones sospechosas</span>
+                                </li>
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Mantener la calma en todo momento</span>
+                                </li>
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Evitar confrontaciones directas</span>
+                                </li>
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Seguir las instrucciones policiales</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card: Bomberos -->
+                    <div class="group relative overflow-hidden bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-all duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mb-6 text-primary">
+                            <i data-lucide="flame" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3">Bomberos</h3>
+                        <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Prevención y atención de incendios, rescates y manejo de materiales peligrosos.</p>
+                        <button onclick="toggleProtocol(this)" class="text-sm font-semibold text-primary flex items-center gap-2 hover:underline focus:outline-none">
+                            Ver protocolo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <div class="protocol-overlay absolute inset-0 brand-gradient p-6 flex flex-col justify-center z-10">
+                            <button onclick="toggleProtocol(this)" class="absolute top-4 right-4 text-white hover:bg-white/20 p-1 rounded-full transition-colors">
+                                <i data-lucide="x" class="w-5 h-5"></i>
+                            </button>
+                            <h4 class="text-xl font-semibold text-white mb-4 border-b border-white/20 pb-2">Protocolo</h4>
+                            <ul class="space-y-3">
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Activar alarma de incendios</span>
+                                </li>
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>No utilizar ascensores</span>
+                                </li>
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Mantener rutas de evacuación libres</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card: Defensa Civil -->
+                    <div class="group relative overflow-hidden bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-all duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mb-6 text-primary">
+                            <i data-lucide="heart-handshake" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3">Defensa Civil</h3>
+                        <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Gestión del riesgo, desastres y acción social comunitaria en todo el territorio.</p>
+                        <button onclick="toggleProtocol(this)" class="text-sm font-semibold text-primary flex items-center gap-2 hover:underline focus:outline-none">
+                            Ver protocolo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <div class="protocol-overlay absolute inset-0 brand-gradient p-6 flex flex-col justify-center z-10">
+                            <button onclick="toggleProtocol(this)" class="absolute top-4 right-4 text-white hover:bg-white/20 p-1 rounded-full transition-colors">
+                                <i data-lucide="x" class="w-5 h-5"></i>
+                            </button>
+                            <h4 class="text-xl font-semibold text-white mb-4 border-b border-white/20 pb-2">Protocolo</h4>
+                            <ul class="space-y-3">
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Identificar zonas de seguridad</span>
+                                </li>
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Seguir alertas tempranas</span>
+                                </li>
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Participar en simulacros</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card: Red Médica -->
+                    <div class="group relative overflow-hidden bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-all duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mb-6 text-primary">
+                            <i data-lucide="stethoscope" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3">Red Médica</h3>
+                        <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Atención de urgencias, ambulancias y red hospitalaria de alta complejidad.</p>
+                        <button onclick="toggleProtocol(this)" class="text-sm font-semibold text-primary flex items-center gap-2 hover:underline focus:outline-none">
+                            Ver protocolo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <div class="protocol-overlay absolute inset-0 brand-gradient p-6 flex flex-col justify-center z-10">
+                            <button onclick="toggleProtocol(this)" class="absolute top-4 right-4 text-white hover:bg-white/20 p-1 rounded-full transition-colors">
+                                <i data-lucide="x" class="w-5 h-5"></i>
+                            </button>
+                            <h4 class="text-xl font-semibold text-white mb-4 border-b border-white/20 pb-2">Protocolo</h4>
+                            <ul class="space-y-3">
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Solicitar asistencia médica</span>
+                                </li>
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>No mover a los lesionados</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card: Apoyo Comunitario -->
+                    <div class="group relative overflow-hidden bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-all duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mb-6 text-primary">
+                            <i data-lucide="users" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3">Apoyo Comunitario</h3>
+                        <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Red de voluntarios y vecinos capacitados para la primera respuesta local.</p>
+                        <button onclick="toggleProtocol(this)" class="text-sm font-semibold text-primary flex items-center gap-2 hover:underline focus:outline-none">
+                            Ver protocolo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <div class="protocol-overlay absolute inset-0 brand-gradient p-6 flex flex-col justify-center z-10">
+                            <button onclick="toggleProtocol(this)" class="absolute top-4 right-4 text-white hover:bg-white/20 p-1 rounded-full transition-colors">
+                                <i data-lucide="x" class="w-5 h-5"></i>
+                            </button>
+                            <h4 class="text-xl font-semibold text-white mb-4 border-b border-white/20 pb-2">Protocolo</h4>
+                            <ul class="space-y-3">
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Activar red de comunicación</span>
+                                </li>
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Brindar apoyo inicial inmediato</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Card: Línea de Escucha -->
+                    <div class="group relative overflow-hidden bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-lg transition-all duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center mb-6 text-primary">
+                            <i data-lucide="headphones" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3">Línea de Escucha</h3>
+                        <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Apoyo psicológico y contención emocional profesional 24 horas al día.</p>
+                        <button onclick="toggleProtocol(this)" class="text-sm font-semibold text-primary flex items-center gap-2 hover:underline focus:outline-none">
+                            Ver protocolo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <div class="protocol-overlay absolute inset-0 brand-gradient p-6 flex flex-col justify-center z-10">
+                            <button onclick="toggleProtocol(this)" class="absolute top-4 right-4 text-white hover:bg-white/20 p-1 rounded-full transition-colors">
+                                <i data-lucide="x" class="w-5 h-5"></i>
+                            </button>
+                            <h4 class="text-xl font-semibold text-white mb-4 border-b border-white/20 pb-2">Protocolo</h4>
+                            <ul class="space-y-3">
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Establecer escucha activa</span>
+                                </li>
+                                <li class="flex gap-2 text-white/90 text-sm items-start">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                                    <span>Identificar señales de crisis</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Protocol -->
+        <section class="py-24 brand-gradient text-white relative overflow-hidden">
+            <div class="max-w-container-max mx-auto px-4 md:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-bold mb-8 tracking-tight">Protocolo de Emergencia</h2>
+                        <p class="text-lg md:text-xl mb-12 text-white/90 leading-relaxed font-light">
+                            Siga estas instrucciones precisas para maximizar la efectividad de la respuesta comunitaria en situaciones críticas.
+                        </p>
+                        <div class="space-y-8">
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-white/40 flex items-center justify-center text-xl font-bold">1</div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Mantenga la calma</h4>
+                                    <p class="text-white/80 leading-relaxed">Evalúe el entorno rápidamente para identificar riesgos inmediatos antes de actuar.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-white/40 flex items-center justify-center text-xl font-bold">2</div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Comuníquese de inmediato</h4>
+                                    <p class="text-white/80 leading-relaxed">Llame a la línea 123 o use el botón "Pedir Ayuda" en la aplicación móvil.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-white/40 flex items-center justify-center text-xl font-bold">3</div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Proporcione su ubicación</h4>
+                                    <p class="text-white/80 leading-relaxed">Sea exacto con su posición y describa brevemente la naturaleza de la emergencia.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-white/40 flex items-center justify-center text-xl font-bold">4</div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Siga instrucciones</h4>
+                                    <p class="text-white/80 leading-relaxed">Permanezca en línea si es seguro y siga las indicaciones del operador profesional.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white/10">
+                        <img 
+                            src="https://images.unsplash.com/photo-1635859890085-ec8cb5466806?fm=jpg&amp;q=60&amp;w=3000&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                            alt="Dispatch interface" 
+                            class="w-full aspect-[4/3] object-cover"
+                        />
+                        <div class="absolute inset-0 bg-primary/20 backdrop-brightness-50"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-x-1/4 translate-y-1/4">
+                <i data-lucide="shield" style="width: 600px; height: 600px;" class="text-white"></i>
+            </div>
+        </section>
+
+        <!-- Contact and Map Section -->
+        <section class="py-24" id="mapa" >
+            <div class="max-w-container-max mx-auto px-4 md:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    <div class="lg:col-span-4 space-y-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-primary mb-4">Información de Contacto</h2>
+                            <p class="text-on-surface-variant font-medium">Sede Administrativa Principal</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 text-primary"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                                <div>
+                                    <h5 class="text-sm font-bold text-primary mb-1">Dirección</h5>
+                                    <p class="text-on-surface-variant text-sm whitespace-pre-line leading-relaxed">Calle 100 #15-32, Edificio Sentinel
+                                    Bogotá D.C., Colombia</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 text-primary"><i data-lucide="phone" class="w-5 h-5"></i></div>
+                                <div>
+                                    <h5 class="text-sm font-bold text-primary mb-1">Teléfono Administrativo</h5>
+                                    <p class="text-on-surface-variant text-sm whitespace-pre-line leading-relaxed">+57 (601) 456 7890</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 text-primary"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                                <div>
+                                    <h5 class="text-sm font-bold text-primary mb-1">Correo de Emergencia</h5>
+                                    <p class="text-on-surface-variant text-sm whitespace-pre-line leading-relaxed">contacto@conectavida.org</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 text-primary"><i data-lucide="clock" class="w-5 h-5"></i></div>
+                                <div>
+                                    <h5 class="text-sm font-bold text-primary mb-1">Horario Administrativo</h5>
+                                    <p class="text-on-surface-variant text-sm whitespace-pre-line leading-relaxed">Lunes - Viernes: 8:00 AM - 5:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="w-full border-2 border-primary text-primary py-3.5 rounded-xl text-sm font-bold hover:bg-surface-container-low transition-all active:scale-95 shadow-sm">
+                            Ver todas las sedes
+                        </button>
+                    </div>
+                    <div class="lg:col-span-8 h-[500px] bg-surface-container-low rounded-3xl overflow-hidden border border-outline-variant relative shadow-inner">
+                        <img 
+                            src="https://images.unsplash.com/photo-1713098965471-d324f294a71d?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                            alt="City Map" 
+                            class="w-full h-full object-cover mix-blend-overlay opacity-80"
+                        />
+                        <div class="absolute inset-0 bg-primary/5"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="brand-gradient text-white p-4 rounded-xl shadow-2xl flex items-center gap-3">
+                                <div class="bg-white/20 p-2 rounded-lg">
+                                    <i data-lucide="map-pin" class="w-6 h-6"></i>
+                                </div>
+                                <div class="pr-2">
+                                   <p class="text-[10px] uppercase font-bold text-white/70 tracking-widest">Sede Central</p>
+                                   <p class="text-sm font-bold">ConectaVida Bogotá</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white mt-auto">
+        <div class="max-w-container-max mx-auto px-4 md:px-8 py-12 flex flex-col items-center gap-8">
+            <span class="text-2xl font-bold tracking-tight">ConectaVida</span>
+            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+                <a href="privacidad.html" class="text-xs font-semibold text-white/70 hover:text-white transition-colors uppercase tracking-widest">Privacidad</a>
+                <a href="#" class="text-xs font-semibold text-white/70 hover:text-white transition-colors uppercase tracking-widest">Términos de Servicio</a>
+                <a href="#Emergencias" class="text-xs font-semibold text-white/70 hover:text-white transition-colors uppercase tracking-widest">Contacto Emergente</a>
+                <a href="#" class="text-xs font-semibold text-white/70 hover:text-white transition-colors uppercase tracking-widest">Red de Centros</a>
+                <a href="#" class="text-xs font-semibold text-white/70 hover:text-white transition-colors uppercase tracking-widest">Documentación</a>
+            </div>
+            <p class="text-sm text-white/50 text-center font-medium max-w-md">
+                © 2026 ConectaVida. Sistema de Respuesta Comunitaria de Precisión. <br>
+                Comprometidos con la seguridad ciudadana.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        menuToggle.addEventListener('click', () => {
+            const isActive = mobileMenu.classList.toggle('active');
+            menuIcon.classList.toggle('hidden', isActive);
+            closeIcon.classList.toggle('hidden', !isActive);
+        });
+
+        // Protocol overlay toggle
+        function toggleProtocol(button) {
+            const card = button.closest('.group');
+            const overlay = card.querySelector('.protocol-overlay');
+            overlay.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

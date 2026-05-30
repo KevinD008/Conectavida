@@ -1,0 +1,23 @@
+# Variables de entorno - NUNCA subir al repositorio
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+
+# Node / React
+node_modules/
+conectainicio/node_modules/
+conectainicio/dist/
+
+# Base de datos
+*.sql.bak
+
+# IDEs
+.vscode/
+.idea/

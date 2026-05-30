@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ConectaVida - Panel de Administración</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#ecf0ff",
+                        "inverse-primary": "#b9c3ff",
+                        "secondary-fixed": "#f0dbff",
+                        "surface-container-highest": "#dde2f3",
+                        "outline-variant": "#c5c5d5",
+                        "on-primary-container": "#fffbff",
+                        "on-secondary-fixed": "#2c0051",
+                        "on-background": "#161c27",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "secondary": "#754aa1",
+                        "secondary-container": "#ce9ffd",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#5a3086",
+                        "primary-fixed": "#dde1ff",
+                        "secondary-fixed-dim": "#dcb8ff",
+                        "primary": "#3953bd",
+                        "on-secondary-fixed-variant": "#5c3187",
+                        "surface-variant": "#dde2f3",
+                        "tertiary-container": "#a56600",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#1f3ba6",
+                        "inverse-surface": "#2a303d",
+                        "on-surface": "#161c27",
+                        "on-tertiary-container": "#fffbff",
+                        "on-surface-variant": "#444653",
+                        "surface-tint": "#3c55bf",
+                        "surface-dim": "#d4daea",
+                        "primary-fixed-dim": "#b9c3ff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#2b1700",
+                        "surface-container-high": "#e3e8f9",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#663e00",
+                        "tertiary-fixed-dim": "#ffb964",
+                        "surface-bright": "#f9f9ff",
+                        "primary-container": "#546cd7",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffddb9",
+                        "surface-container-low": "#f1f3ff",
+                        "outline": "#757684",
+                        "tertiary": "#835100",
+                        "surface-container": "#e8eeff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001356"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "lg": "24px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-xl-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .brand-gradient {
+            background: linear-gradient(135deg, #3953bd 0%, #754aa1 100%);
+        }
+        .brand-gradient-hover:hover {
+            filter: brightness(110%);
+        }
+        .soft-sentinel {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar from JSON -->
+<header class="bg-surface dark:bg-surface-dim docked full-width top-0 sticky z-50 border-b border-surface-border dark:border-outline-variant shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-margin-desktop h-16 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">ConectaVida</span>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-soft-blue-gray dark:hover:bg-surface-container transition-colors duration-200" href="#">Emergencias</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-soft-blue-gray dark:hover:bg-surface-container transition-colors duration-200" href="#">Recursos</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-soft-blue-gray dark:hover:bg-surface-container transition-colors duration-200" href="#">Mapa</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-soft-blue-gray dark:hover:bg-surface-container transition-colors duration-200" href="#">Voluntarios</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-soft-blue-gray dark:hover:bg-surface-container transition-colors duration-200" href="#">Noticias</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="brand-gradient text-on-primary px-lg py-sm rounded-lg font-label-md brand-gradient-hover Active:scale-95 transition-all">Pedir Ayuda</button>
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-xs hover:bg-surface-container rounded-full" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-xs hover:bg-surface-container rounded-full" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-[calc(100vh-64px)] w-full max-w-container-max mx-auto">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col w-64 bg-surface border-r border-outline-variant py-xl px-md gap-md">
+<div class="px-sm py-xs mb-md">
+<p class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Menú Principal</p>
+</div>
+<a class="flex items-center gap-md p-md rounded-lg brand-gradient text-on-primary soft-sentinel" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Reportes</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-label-md text-label-md">Voluntarios</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-label-md text-label-md">Centros</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Configuración</span>
+</a>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-margin-desktop overflow-y-auto">
+<!-- Hero / Title -->
+<div class="mb-xl">
+<h1 class="font-headline-lg text-headline-lg text-on-background mb-xs">Resumen del Sistema</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Monitoreo en tiempo real de la red comunitaria de ConectaVida.</p>
+</div>
+<!-- Key Metrics Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-xl">
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl flex flex-col gap-sm hover:border-primary transition-colors cursor-default">
+<div class="flex justify-between items-center">
+<span class="material-symbols-outlined text-error p-base bg-error-container rounded-lg" data-icon="emergency">emergency</span>
+<span class="text-error font-label-sm">+3 hoy</span>
+</div>
+<span class="font-headline-md text-headline-md">14</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Emergencias Activas</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl flex flex-col gap-sm hover:border-primary transition-colors cursor-default">
+<div class="flex justify-between items-center">
+<span class="material-symbols-outlined text-primary p-base bg-primary-fixed rounded-lg" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="text-primary font-label-sm">+124</span>
+</div>
+<span class="font-headline-md text-headline-md">1,842</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Voluntarios Registrados</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl flex flex-col gap-sm hover:border-primary transition-colors cursor-default">
+<div class="flex justify-between items-center">
+<span class="material-symbols-outlined text-secondary p-base bg-secondary-fixed rounded-lg" data-icon="description">description</span>
+<span class="text-secondary font-label-sm">Urgente</span>
+</div>
+<span class="font-headline-md text-headline-md">28</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Reportes Pendientes</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-xl flex flex-col gap-sm hover:border-primary transition-colors cursor-default">
+<div class="flex justify-between items-center">
+<span class="material-symbols-outlined text-tertiary p-base bg-tertiary-fixed rounded-lg" data-icon="bolt">bolt</span>
+<span class="text-tertiary font-label-sm">Óptimo</span>
+</div>
+<span class="font-headline-md text-headline-md">99.8%</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Uptime del Servicio</span>
+</div>
+</div>
+<!-- Bento Grid Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-xl">
+<!-- Live Activity Feed -->
+<div class="lg:col-span-5 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col h-full">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md">Actividad Reciente</h3>
+<span class="text-primary font-label-sm cursor-pointer hover:underline">Ver todo</span>
+</div>
+<div class="flex flex-col gap-md">
+<!-- Feed Item 1 -->
+<div class="flex gap-md p-md rounded-lg hover:bg-surface-container transition-colors border-l-4 border-error">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A portrait of a focused female emergency dispatcher wearing a headset in a modern control room. The lighting is low with cool blue and purple hues from multiple computer monitors reflecting on her face, creating a professional and high-stakes atmosphere consistent with the ConectaVida brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfTLPy-BU-F4ZIu-5y90XCWLzy9u81leB_xRyx-VFvUieoiHWBAZmmv0gLrUEpeeuc8N94pvkOVOudTPiVEle2ZvW_pdwgKCKjE_qx7zJ11GduOynov0A7NyY3T9v2-GNfhgUQp_b1ok7cKUX9Guyu8C1FAZZP1rA8Fk8t24GLNPC7pnJKMoqI4aNFjw-IInO1FXM6sVndv0fEOc9WdZawIHXOoRUrzeqR6Jgttg_1DMOP50PPo7rEG15vZHuilrLgnxzVgE2IqpNN"/>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Alerta Médica: Zona Norte</p>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-1">Solicitud de primeros auxilios enviada por María García.</p>
+<span class="font-label-sm text-label-sm text-outline">Hace 2 minutos</span>
+</div>
+</div>
+<!-- Feed Item 2 -->
+<div class="flex gap-md p-md rounded-lg hover:bg-surface-container transition-colors border-l-4 border-primary">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A professional male paramedic in a bright orange high-visibility uniform standing in front of a modern ambulance. The background is a clean urban street during daylight with soft shadows, reflecting a sense of active protection and technological sophistication in a light-mode corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgTLGAtxXRsJQsmIXQ4RMxXlYiqe6IzH54Gucx_XvlZLiJhC0O0KZnFoHlXpWwavkLYIlH489Z79vgf1Daj5DcQ0i14ajZdnwhcKK0jE-raGWqH5A2wnEGtQSJHvU9_Qh2r-OHcsXPJW1m6nxMyrisA22WwmL6ZrhPlynCt06iXD5easXQnhPWrjha-WWDHX9J39UbNvaI-IulH9Hkpg8CftGnJRb5i28F6Mno2hGgKRB3P-0RRSuiR4SznZBQm0h_xa_O00eVMLL3"/>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Voluntario en Camino</p>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-1">Roberto S. ha aceptado la misión en Centro Histórico.</p>
+<span class="font-label-sm text-label-sm text-outline">Hace 15 minutos</span>
+</div>
+</div>
+<!-- Feed Item 3 -->
+<div class="flex gap-md p-md rounded-lg hover:bg-surface-container transition-colors border-l-4 border-secondary">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A close-up of two people shaking hands in a community center. The scene is brightly lit with warm, natural sunlight, emphasizing human-centric clarity and reassurance. The background features blurred soft lavender and indigo accents, aligning with the brand's sophisticated layering system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNNhkVMiSFkw1Rsfjep8i1CaBY5Pkj0gIgpigRSLS_8C-vD7cgza4yceaGnf6Y-L095bQgM3mkCdTJby2Rms3FbL6iV0q2xi5TDsTK173mZxOr4z5mX5EznHeEknR6AmaAcuOlaEyzN7Bfb8-qMyZt9Fh2aBze1dBvpv6rmJEZxC0w6pGKJ22v8WkqJe7WSWDsH5U5hsAp8No40W6oib4-bSxz2gQDJ8579i9WAPPSnbIqwC5jz8pKBPkmk3ax8haicArWzrUEuce3"/>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Nueva Donación Recibida</p>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-1">Centro San Pedro recibió suministros médicos.</p>
+<span class="font-label-sm text-label-sm text-outline">Hace 45 minutos</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Status Map Overview -->
+<div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden relative group h-[400px]">
+<div class="absolute top-md left-md z-10 glass-card p-md rounded-lg soft-sentinel">
+<h3 class="font-label-md text-label-md font-bold mb-xs">Mapa de Centros</h3>
+<div class="flex gap-sm items-center">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs text-on-surface-variant">12 Operativos</span>
+</div>
+</div>
+<img class="w-full h-full object-cover" data-alt="A stylized, high-fidelity digital map of a modern city at dusk, showing clusters of glowing data points representing support centers. The map features a professional dark-blue and violet color scheme with bright glowing markers, embodying the technical precision and monitoring capabilities of the ConectaVida dashboard." data-location="Madrid, Spain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZU5oiQuxGJLl-LdaLGxWX1G9iXrlEUW9ce47IDTTubU8nt6iiNaJ4AwK3mfkTyIrl121EmUIKUGzpWlI2bI4SZgSjVP7UmuMIdOXAA7R3UmLKHXjtSFX4set_ApCsD7dF9VykTSaz98jxxgb9Rn03NP_I6bQqR1mjUObsjlgfn_JCLJ1KRM-3Dlb-kNrf5RB6KWflH4lhBzdhZQa4xgjN4zibj0J2MzfZsn7ErV6JTM6XfNfVuAPVGq637TCOBHPg1RgUv59q0L7W"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors pointer-events-none"></div>
+</div>
+</div>
+<!-- Charts and Support Trends -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md mb-xl">
+<div>
+<h3 class="font-headline-md text-headline-md">Tendencias de Apoyo Comunitario</h3>
+<p class="font-body-md text-sm text-on-surface-variant">Impacto y respuesta de voluntarios en los últimos 30 días.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-xs border border-outline-variant rounded-lg font-label-sm text-on-surface-variant hover:bg-surface-container">7 días</button>
+<button class="px-md py-xs brand-gradient text-on-primary rounded-lg font-label-sm soft-sentinel">30 días</button>
+</div>
+</div>
+<div class="h-64 w-full flex items-end gap-md md:gap-lg px-md">
+<!-- Fake Chart Bars -->
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-fixed-dim/40 rounded-t-lg h-[40%]"></div>
+<span class="font-label-sm text-xs text-outline">Sem 1</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-fixed-dim/40 rounded-t-lg h-[65%]"></div>
+<span class="font-label-sm text-xs text-outline">Sem 2</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full brand-gradient rounded-t-lg h-[95%] shadow-lg"></div>
+<span class="font-label-sm text-xs text-on-surface font-bold">Sem 3</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-fixed-dim/40 rounded-t-lg h-[80%]"></div>
+<span class="font-label-sm text-xs text-outline">Sem 4</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-fixed-dim/40 rounded-t-lg h-[55%]"></div>
+<span class="font-label-sm text-xs text-outline">Sem 5</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer from JSON -->
+<footer class="bg-primary dark:bg-primary-container full-width relative border-t border-primary-container dark:border-primary flat no shadows">
+<div class="w-full py-12 px-margin-desktop flex flex-col items-center gap-8">
+<span class="font-headline-md text-headline-md text-on-primary dark:text-on-primary-container font-bold">ConectaVida</span>
+<div class="flex flex-wrap justify-center gap-lg">
+<a class="font-label-sm text-label-sm text-on-primary/80 dark:text-on-primary-container/80 hover:text-on-primary hover:underline decoration-on-primary-container cursor-pointer transition-opacity" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-primary/80 dark:text-on-primary-container/80 hover:text-on-primary hover:underline decoration-on-primary-container cursor-pointer transition-opacity" href="#">Términos de Servicio</a>
+<a class="font-label-sm text-label-sm text-on-primary/80 dark:text-on-primary-container/80 hover:text-on-primary hover:underline decoration-on-primary-container cursor-pointer transition-opacity" href="#">Contacto Emergente</a>
+<a class="font-label-sm text-label-sm text-on-primary/80 dark:text-on-primary-container/80 hover:text-on-primary hover:underline decoration-on-primary-container cursor-pointer transition-opacity" href="#">Red de Centros</a>
+<a class="font-label-sm text-label-sm text-on-primary/80 dark:text-on-primary-container/80 hover:text-on-primary hover:underline decoration-on-primary-container cursor-pointer transition-opacity" href="#">Documentación</a>
+</div>
+<p class="font-body-md text-body-md text-on-primary/70 text-center">© 2026 ConectaVida. Sistema de Respuesta Comunitaria de Precisión.</p>
+</div>
+</footer>
+</body></html>
