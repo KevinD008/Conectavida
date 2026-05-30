@@ -17,7 +17,7 @@ app.add_middleware(
 )
 
 # 🔹 GEMINI
-genai.configure(api_key="AIzaSyDWJnYGY63QF0FE2QfBXjxUi4J2OPRV--o")
+genai.configure(api_key="GEMINI_API_KEY")
 model = genai.GenerativeModel("gemini-3-flash-preview")
 
 # 🔹 MYSQL
